@@ -15,10 +15,12 @@ module.exports = (sequelize, DataTypes) => {
       Activity.belongsToMany(Activity, {
         through: models.Prereq,
         foreignKey: 'prereqActivityId',
+        as: 'prereq',
       });
       Activity.belongsToMany(Activity, {
         through: models.Prereq,
         foreignKey: 'activityId',
+        as: 'activity',
       });
       Activity.belongsTo(models.GuideNote, { foreignKey: 'activityId' });
     }

@@ -10,7 +10,7 @@ function App() {
   }, [dispatch]);
   const cur = useSelector((state) => state.session.user);
 
-  return <></>;
+  return <>Working</>;
 }
 
 export default App;
