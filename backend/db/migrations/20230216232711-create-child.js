@@ -21,6 +21,9 @@ module.exports = {
       allergiesId: {
         type: Sequelize.INTEGER,
       },
+      guideId: {
+        type: Sequelize.INTEGER,
+      },
     });
   },
   async down(queryInterface, Sequelize) {

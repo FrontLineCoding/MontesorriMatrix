@@ -11,18 +11,21 @@ module.exports = {
           lastName: 'One',
           emergencyContactInfo: null,
           allergiesId: null,
+          guideId: 1,
         },
         {
           firstName: 'Child2',
           lastName: 'Two',
           emergencyContactInfo: null,
           allergiesId: null,
+          guideId: 1,
         },
         {
           firstName: 'Child3',
           lastName: 'Three',
           emergencyContactInfo: null,
           allergiesId: null,
+          guideId: 1,
         },
       ],
       {}
