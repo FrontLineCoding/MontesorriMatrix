@@ -2,8 +2,8 @@ const config = require('./index');
 module.exports = {
   development: {
     //TODO: storage is hardcoded, not an env variable
-    storage: './db/dev.db',
-    // storage: config.dbFile,
+    // storage: './db/dev.db',
+    storage: config.dbFile,
     dialect: 'sqlite',
     seederStorage: 'sequelize',
     logQueryParameters: true,
