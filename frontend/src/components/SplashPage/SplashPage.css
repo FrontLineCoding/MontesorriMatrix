@@ -1,0 +1,25 @@
+.splash-page-main-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.splash-page-left-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    color:white;
+    font-weight: 700;
+    font-size: 30px;
+    background-image: linear-gradient(to bottom right, #2196f3, #f54cce);
+}
+.splash-page-right-container{
+    background-color: rgba(70, 0, 150, 0.33);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
