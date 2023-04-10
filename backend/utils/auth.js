@@ -1,15 +1,18 @@
 const jwt = require('jsonwebtoken');
 const { jwtConfig } = require('../config');
 const { User } = require('../db/models');
-
-const { secret, expiresIn } = jwtConfig;
+//TODO: Comment back in \/\/, currently hard coded
+// const { secret, expiresIn } = jwtConfig;
+const secret = 'password';
+const expiresIn = 604800;
+console.log('secret', secret);
 
 
 // Sends a JWT Cookie
 const  setTokenCookie = async (res, user) => {
     // Create the token.
     const token = jwt.sign(
-      { data: await user.toSafeObject() },
+      { data: await user },
       secret,
       { expiresIn: parseInt(expiresIn) } // 604,800 seconds = 1 week
     );

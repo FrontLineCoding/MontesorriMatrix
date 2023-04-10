@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     static async login({ username, password }) {
       const { Op } = require('sequelize');
-      const user = await Guide.scope('loginUser').findOne({
+      const user = await Guide.findOne({
         where: {
           [Op.or]: {
             username: username,
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       });
       if (user && user.validatePassword(password)) {
-        return await Guide.scope('currentUser').findByPk(user.id);
+        return await Guide.findByPk(user.id);
       }
     }
     static async signup({ username, password }) {
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         username,
         checkedPassword,
       });
-      return await Guide.scope('currentUser').findByPk(user.id);
+      return await Guide.findByPk(user.id);
     }
 
     static associate(models) {
@@ -38,7 +38,18 @@ module.exports = (sequelize, DataTypes) => {
   }
   Guide.init(
     {
-      username: { type: DataTypes.STRING },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [4, 30],
+          isNotEmail(value) {
+            if (Validator.isEmail(value)) {
+              throw new Error("Cannot be an email.");
+            }
+          }
+        }
+      },
       password: { type: DataTypes.STRING.BINARY },
     },
     {

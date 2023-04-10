@@ -33,7 +33,7 @@ router.get('/user', requireAuth, async (req, res) => {
 router.post('/', validateLogin, async (req, res, next) => {
   const { username, password } = req.body;
   const user = await Guide.login({ username, password });
-
+  console.log('backend session from login button');
   if (!user) {
     const err = new Error('Invalid Credentials');
     err.status = 401;
@@ -45,7 +45,7 @@ router.post('/', validateLogin, async (req, res, next) => {
   const payload = {
     id: user.id,
     username: user.username,
-    token,
+    // token,
     // user: await user.toSafeObject(),
     // token
   };

@@ -21,8 +21,10 @@ const LoginForm = () => {
         e.preventDefault();
         setErrors([]);
         return dispatch(sessionActions.login({ username, password }))
-          .catch(async (res) => {
+        .catch(async (res) => {
+            console.log('LoginForm.js: ', {username, password});
             const data = await res.json();
+            console.log('DATA:  ', data);
             if (data.statusCode === 401) {setErrors([data.message])};
           });
       }

@@ -44,7 +44,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Activity',
-    }
-  );
+    });
   return Activity;
 };
