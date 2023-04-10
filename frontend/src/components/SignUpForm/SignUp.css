@@ -1,20 +1,23 @@
+.return-signup-container{
+    margin-top: 40%;
+}
 .splash-page-main-container{
     cursor: default;
 }
 
-.login-main-container{
+.signup-main-container{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login-form-container{
+.signup-form-container{
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
-.login-form-container > label {
+.signup-form-container > label {
     margin: 5px;
 }
 
@@ -25,17 +28,27 @@
     margin-bottom: 5px;
 }
 .username-text{
-    width:30%
+    font-size: 32px;
+    margin-right: 17%;
 }
 .username-input{
     width: 65%;
     height: 1.3rem;
     border: solid black 1px;
     border-radius: 10px;
+    padding: 2px;
     padding-left: 5%;
     background-color: rgba(0,0,0,0);
+    font-size: 32px;
 }
 
+.password-outter-input{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-right: 0px;
+
+}
 
 .password-container{
     display: flex;
@@ -46,16 +59,24 @@
     width:30%
 }
 .password-input{
-    width: 65%;
+    width: 64%;
     height: 1.3rem;
     border: solid black 1px;
     border-radius: 10px;
+    padding: 2px;
     padding-left: 5%;
     background-color: rgba(0,0,0,0);
 }
 
-.inputs-container{
-
+.hide-password-div{
+    border: solid black 1px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2px;
+    margin-left: 2px;
+}
+.show-password-boolean{
+    /* width:30% */
 }
 
 
