@@ -8,10 +8,15 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const MainPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const checkCurrentUser = useSelector(state => state.session.user);
+
+    if (!checkCurrentUser) {
+        history.push('/');
+    }
 
 
     return <>
-        <h2 onClick={() => {dispatch(sessionActions.logout()); return (<Redirect to='/' />)}}>logout</h2>
+        <h2 onClick={() => {dispatch(sessionActions.logout())}}>logout</h2>
     </>
 }
 

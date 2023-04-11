@@ -33,10 +33,9 @@
 }
 .username-input{
     width: 65%;
-    height: 1.3rem;
     border: solid black 1px;
     border-radius: 10px;
-    padding: 2px;
+    padding: 3%;
     padding-left: 5%;
     background-color: rgba(0,0,0,0);
     font-size: 32px;
@@ -63,9 +62,10 @@
     height: 1.3rem;
     border: solid black 1px;
     border-radius: 10px;
-    padding: 2px;
+    padding: 3%;
     padding-left: 5%;
     background-color: rgba(0,0,0,0);
+    font-size: 32px;
 }
 
 .hide-password-div{
@@ -78,6 +78,43 @@
 .show-password-boolean{
     /* width:30% */
 }
+
+.password-outter-input{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-right: 0px;
+
+}
+
+.password-confirm-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.password-confirm-text{
+    width:30%
+}
+.password-confirm-input{
+    width: 64%;
+    height: 1.3rem;
+    border: solid black 1px;
+    border-radius: 10px;
+    padding: 3%;
+    padding-left: 5%;
+    background-color: rgba(0,0,0,0);
+    font-size: 32px;
+}
+
+.hide-password-div{
+    border: solid black 1px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2px;
+    margin-left: 2px;
+}
+
 
 
 
@@ -100,5 +137,16 @@
 }
 
 .sign-up-text:hover{
+    cursor: pointer;
+}
+
+.sign-up-button {
+    margin-top: 5%;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 2px;
+}
+.sign-up-button:hover{
     cursor: pointer;
 }

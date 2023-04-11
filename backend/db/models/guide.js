@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       const checkedPassword = bcrypt.hashSync(password);
       const user = await Guide.create({
         username,
-        checkedPassword,
+        password: checkedPassword,
       });
       return await Guide.findByPk(user.id);
     }

@@ -14,18 +14,22 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
     const [showPassword, setShowPassword] = useState(false);
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     if (sessionUser) return(
         <Redirect to='/main-page' />
     );
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
-        return dispatch(sessionActions.signup({ username, password }))
-        .catch(async (res) => {
-            const data = await res.json();
-            if (data.statusCode === 401) {setErrors([data.message])};
-          });
+        if(password === confirmPassword){
+            setErrors([]);
+            return dispatch(sessionActions.signup({ username, password }))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data.statusCode === 401) {setErrors([data.message])};
+              });
+        }
       }
 
       return (
@@ -51,6 +55,7 @@ const SignUp = () => {
                         <p className='password-text'>Password</p>
                         <div className='password-outter-input'>
                             <input
+                            id='sign-up-password'
                             className='password-input'
                             type="password"
                             value={password}
@@ -62,19 +67,63 @@ const SignUp = () => {
                                 showPassword ?
                                 <div className='hide-password-div'>
                                     <p className='hide-password-text'
-                                    onClick={() => {setShowPassword(!showPassword)}}
+                                    onClick={() => {
+                                        setShowPassword(!showPassword);
+                                        const passwordShow = document.getElementById('sign-up-password');
+                                        passwordShow.type = 'password';
+                                    }}
                                     >Hide</p>
                                 </div>                            :
                                 <div className='hide-password-div'>
                                     <p className='hide-password-text'
-                                    onClick={() => {setShowPassword(!showPassword)}}
+                                    onClick={() => {
+                                        setShowPassword(!showPassword);
+                                        const passwordShow = document.getElementById('sign-up-password');
+                                        passwordShow.type = 'text';
+                                    }}
                                     >Show</p>
                                 </div>}
                             </div>
                         </div>
                     </label>
+                    <label className='password-confirm-container'>
+                        <p className='password-confirm-text'>Confirm Password</p>
+                        <div className='password-outter-input'>
+                            <input
+                            id='sign-up-confirm-password'
+                            className='password-confirm-input'
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                            >
+                            </input>
+                            <div className='show-password-boolean'>{
+                                showConfirmPassword ?
+                                <div className='hide-password-div'>
+                                    <p className='hide-password-text'
+                                    onClick={() => {
+                                        console.log('clicked confirm password', showConfirmPassword);
+                                        setShowConfirmPassword(!showConfirmPassword);
+                                        const confirmPasswordShow = document.getElementById('sign-up-confirm-password');
+                                        confirmPasswordShow.type = 'password';
+                                    }}
+                                    >Hide</p>
+                                </div>                            :
+                                <div className='hide-password-div'>
+                                    <p className='hide-password-text'
+                                    onClick={() => {
+                                        setShowConfirmPassword(!showConfirmPassword);
+                                        const confirmPasswordShow = document.getElementById('sign-up-confirm-password');
+                                        confirmPasswordShow.type = 'text';}}
+                                    >Show</p>
+                                </div>}
+                            </div>
+                        </div>
+                    </label>
+
                 </div>
-            <button type="submit" className='signup-button'>Start Managing!</button>
+            <button type="submit" className='sign-up-button'>Start Managing!</button>
             </div>
             </form>
         </div>
