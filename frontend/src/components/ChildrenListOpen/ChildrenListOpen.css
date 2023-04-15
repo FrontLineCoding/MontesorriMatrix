@@ -1,0 +1,35 @@
+.always-arrow-container{
+    display: flex;
+}
+.arrow{
+    height: 100%;
+}
+
+.outter-most-children-list-container{
+
+}
+.children-list-open-container{
+    height: 100%;
+    width: fit-content;
+    border: solid 1px black;
+}
+.showing-children-main{
+    width: fit-content;
+
+}
+.showing-children-list{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+
+}
+.showing-children-list:hover{
+    cursor: pointer;
+}
+.child-name-container{
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    padding: 2px 5px 2px 2px;
+    font-size: large;
+}

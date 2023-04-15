@@ -21,9 +21,10 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
+
+
 router.post('/', validateSignup, async (req, res) => {
   const { password, username } = req.body;
-  console.log('user API: ', username, password);
   const user = await Guide.signup({ password, username });
 
   const token = await setTokenCookie(res, user);

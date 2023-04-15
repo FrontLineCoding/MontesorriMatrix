@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Child_Activity,
         foreignKey: 'childId',
       });
-      Child.belongsTo(models.Guide);
+      Child.belongsTo(models.Guide, {foreignKey: 'guideId'});
       Child.hasMany(models.ChildAllergy, { foreignKey: 'childId' });
       Child.hasMany(models.ChildEmergencyContact, { foreignKey: 'childId' });
       Child.belongsTo(models.GuideNote, { foreignKey: 'childId' });
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       firstName: { type: DataTypes.STRING, allowNull: false },
       lastName: { type: DataTypes.STRING, allowNull: false },
-      emergencyContactInfo: { type: DataTypes.INTEGER, allowNull: false },
+      emergencyContactInfo: DataTypes.INTEGER,
       allergiesId: DataTypes.INTEGER,
       guideId: DataTypes.INTEGER,
     },

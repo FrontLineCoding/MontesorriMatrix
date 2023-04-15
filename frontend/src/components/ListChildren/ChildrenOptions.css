@@ -1,0 +1,11 @@
+.navigation-container{
+    width: 100%;
+}
+.navigation-options-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.navigation-option{
+    height: fit-content;
+}
