@@ -12,7 +12,6 @@ const ChildrenListOpen = ({user}) => {
     const [showList, setShowList] = useState(false);
     const [loadChildren, setLoadChilren] = useState(false);
     const guidesChildren = useSelector(state => state.guide.children);
-    console.log('GuidesChidlren',guidesChildren);
 
     useEffect(() => {
         dispatch(sessionActions.getGuideChildren(user.id));
@@ -34,7 +33,6 @@ const ChildrenListOpen = ({user}) => {
                     <div className="showing-children-main">
                         <div className="showing-children-list">
                             {guidesChildren?.map(child => {
-                                console.log(child);
                                 return <div className="child-name-container">
                                         {child.firstName} {child.lastName}
                                         </div>

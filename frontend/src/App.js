@@ -6,6 +6,7 @@ import * as sessionActions from './store/session';
 import MainPage from './components/MainPage/MainPage';
 import SignUp from './components/SignUpForm/SignUp';
 import NavigationBar from './components/NavigationBar/NavigationBar';
+import Journey from './components/Journey/Journey';
 
 function App() {
   const dispatch = useDispatch();
@@ -14,14 +15,14 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
   const cur = useSelector((state) => state.session.user);
-
+//TODO having a rending issue with nested divs showing the selected view
   return (
     <>
+    {cur ? <NavigationBar user={cur}/> : <></>}
     {cur ?
       <Switch>
-        <NavigationBar user={cur}/>
-        <Route path='/journey'>
-
+        <Route exact path='/journey'>
+          <Journey></Journey>
         </Route>
         <Route path='/cirriculum'>
 

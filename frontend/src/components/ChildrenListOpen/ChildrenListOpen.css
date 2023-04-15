@@ -1,7 +1,17 @@
 .always-arrow-container{
     display: flex;
+    height: 100%;
 }
 .arrow{
+    display: flex;
+    height: 100%;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    align-items: center;
+    padding-right: 5px;
+}
+.list-children-container{
     height: 100%;
 }
 
@@ -11,7 +21,9 @@
 .children-list-open-container{
     height: 100%;
     width: fit-content;
-    border: solid 1px black;
+    border: solid 3px black;
+    border-top-right-radius: 5%;
+    box-shadow: 5px 0px 10px black;
 }
 .showing-children-main{
     width: fit-content;

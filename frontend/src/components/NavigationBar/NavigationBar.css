@@ -2,22 +2,39 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     background-color: rgba(70, 0, 150, 0.33);
 
 }
 .list-children-container{
     margin-left: 5px;
+    margin-top: 5px;
 }
 .navigation-options-container{
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    margin-top: 10px;
 }
 .navigation-option{
-    border: 1px solid black;
+    border: 5px solid black;
+    border-radius: 10px;
     padding: 3px 5px;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 1);
 }
 .user-options-container{
     margin-right: 5px;
+}
+
+.active{
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    border-bottom: 5px solid white;
+
 }
