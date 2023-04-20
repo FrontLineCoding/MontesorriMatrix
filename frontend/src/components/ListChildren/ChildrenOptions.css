@@ -1,5 +1,6 @@
 .navigation-container{
     width: 100%;
+    height: fit-content;
 }
 .navigation-options-container{
     display: flex;

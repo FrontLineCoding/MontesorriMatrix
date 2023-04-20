@@ -24,6 +24,8 @@
     border: solid 3px black;
     border-top-right-radius: 5%;
     box-shadow: 5px 0px 10px black;
+    position: absolute;
+    background-color: rgb(160, 75, 255);
 }
 .showing-children-main{
     width: fit-content;

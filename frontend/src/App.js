@@ -7,6 +7,8 @@ import MainPage from './components/MainPage/MainPage';
 import SignUp from './components/SignUpForm/SignUp';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Journey from './components/Journey/Journey';
+import ChildrenListOpen from './components/ChildrenListOpen/ChildrenListOpen';
+import ChildrenOptions from './components/ListChildren/ChildrenOptions';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +20,9 @@ function App() {
 //TODO having a rending issue with nested divs showing the selected view
   return (
     <>
-    {cur ? <NavigationBar user={cur}/> : <></>}
+    {/* {cur ? <NavigationBar user={cur}/> : <></>} */}
+    {cur ? <><ChildrenListOpen user={cur}/> <ChildrenOptions /> </> : <></>}
+    {/* {cur ? <ChildrenOptions /> : <></>} */}
     {cur ?
       <Switch>
         <Route exact path='/journey'>
