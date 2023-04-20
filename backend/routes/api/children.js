@@ -5,14 +5,7 @@ const router = express.Router();
 
 
 router.get('/guides/:guideId', async (req, res) => {
-    console.log('************************');
-    console.log('************************');
-    console.log('************************');
-    console.log('************************');
-    console.log('************************');
-    console.log('************************');
     const {guideId} = req.params;
-    console.log(guideId);
 
     const guideChildren = await Child.findAll({
         where : {guideId: guideId},
@@ -26,6 +19,20 @@ router.get('/guides/:guideId', async (req, res) => {
     }
 
     return res.json(payload);
+})
+
+router.get('/:childId', async (req, res) => {
+    const {childId} = req.params;
+
+    const child = await Child.findOne({
+        where : {id: childId},
+        attributes: {
+         exclude: ['childId']
+        }
+
+    })
+
+    return res.json(child);
 })
 
 module.exports = router;

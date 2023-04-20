@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import './ChildrenListOpen.css'
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from '../../store/guide';
+import { getChild } from "../../store/child";
 
 
 const ChildrenListOpen = ({user}) => {
@@ -17,7 +18,11 @@ const ChildrenListOpen = ({user}) => {
         dispatch(sessionActions.getGuideChildren(user.id));
     },[loadChildren])
 
-
+    const updateCurrentChild = (childId) => {
+        console.log('clicked child');
+        console.log(childId);
+        dispatch(getChild(childId));
+    }
 
     return (
     <>
@@ -33,7 +38,7 @@ const ChildrenListOpen = ({user}) => {
                     <div className="showing-children-main">
                         <div className="showing-children-list">
                             {guidesChildren?.map(child => {
-                                return <div className="child-name-container">
+                                return <div className="child-name-container"  onClick={() => {updateCurrentChild(child.id)}}>
                                         {child.firstName} {child.lastName}
                                         </div>
                             })}
