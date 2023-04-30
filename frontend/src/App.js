@@ -9,27 +9,28 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import Journey from './components/Journey/Journey';
 import ChildrenListOpen from './components/ChildrenListOpen/ChildrenListOpen';
 import ChildrenOptions from './components/ListChildren/ChildrenOptions';
+import { getActivities } from './store/activities';
+import Cirriculum from './components/Cirriculum/Cirriculum';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
+
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(getActivities());
   }, [dispatch]);
   const cur = useSelector((state) => state.session.user);
-//TODO having a rending issue with nested divs showing the selected view
   return (
     <>
-    {/* {cur ? <NavigationBar user={cur}/> : <></>} */}
     {cur ? <><ChildrenListOpen user={cur}/> <ChildrenOptions /> </> : <></>}
-    {/* {cur ? <ChildrenOptions /> : <></>} */}
     {cur ?
       <Switch>
         <Route exact path='/journey'>
           <Journey></Journey>
         </Route>
         <Route path='/cirriculum'>
-
+          <Cirriculum></Cirriculum>
         </Route>
         <Route path='/allergies'>
 

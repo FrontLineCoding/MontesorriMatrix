@@ -18,7 +18,6 @@ export const getChild = (childId) => async (dispatch) => {
 };
 
 
-
 const initialState = {};
 
 const childReducer = (state = initialState, action) => {

@@ -19,7 +19,7 @@ const ChildrenOptions = () => {
                     Journey
                 </NavLink>
                 <NavLink
-                to='/cirriculm'
+                to='/cirriculum'
                 className='navigation-option'>
                     Cirriculum
                 </NavLink>

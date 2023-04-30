@@ -1,0 +1,47 @@
+.cirriculum-main{
+    margin-left: 50px;
+    height: 100%;
+}
+
+.student-name-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.cirriculum-heads-up-container{
+    display: flex;
+}
+
+.activities-main-container{
+    margin-top: 10px;
+    margin-left: 10px;
+    overflow-y: scroll;
+    height: 86%;
+}
+.activity{
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    padding: 3px 0px;
+}
+.activity-name{
+    width: 33%;
+}
+.activity-mastery{
+    padding-left: 10px;
+    width: 7%;
+}
+.activity-notes{
+    width: 33%;
+}
+
+.darker{
+    background-color: rgba(160,75,255,.9);
+}
+.lighter{
+    background-color: rgba(160,75,255,.3);
+}

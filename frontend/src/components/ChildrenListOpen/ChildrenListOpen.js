@@ -4,6 +4,8 @@ import './ChildrenListOpen.css'
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from '../../store/guide';
 import { getChild } from "../../store/child";
+import { getChildActivities } from "../../store/child_activities";
+import { getActivities } from "../../store/activities";
 
 
 const ChildrenListOpen = ({user}) => {
@@ -15,13 +17,16 @@ const ChildrenListOpen = ({user}) => {
     const guidesChildren = useSelector(state => state.guide.children);
 
     useEffect(() => {
+        dispatch(getActivities());
+    })
+    useEffect(() => {
         dispatch(sessionActions.getGuideChildren(user.id));
     },[loadChildren])
 
+
     const updateCurrentChild = (childId) => {
-        console.log('clicked child');
-        console.log(childId);
         dispatch(getChild(childId));
+        dispatch(getChildActivities(childId));
     }
 
     return (
@@ -38,7 +43,7 @@ const ChildrenListOpen = ({user}) => {
                     <div className="showing-children-main">
                         <div className="showing-children-list">
                             {guidesChildren?.map(child => {
-                                return <div className="child-name-container"  onClick={() => {updateCurrentChild(child.id)}}>
+                                return <div className="child-name-container"  onClick={() => {updateCurrentChild(child.id); setShowList(!showList)}}>
                                         {child.firstName} {child.lastName}
                                         </div>
                             })}

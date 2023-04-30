@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import guideReducer from './guide';
 import childReducer from './child';
+import childActivityReducer from './child_activities';
+import activityReducer from './activities';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   guide: guideReducer,
   child: childReducer,
+  childActivities: childActivityReducer,
+  activity: activityReducer,
 });
 
 let enhancer;
