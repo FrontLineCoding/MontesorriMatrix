@@ -11,6 +11,7 @@ const Cirriculum = () => {
     const [selectedArea, setSelectedArea] = useState('Practical Life');
     const [showAreas, setShowAreas] = useState(false);
     const [activitiesOfSelectedArea, setActivitiesOfSelectedArea] = useState([]);
+    const selectableAreas = ['Practical Life', 'Sensorial', 'Language', 'Rhythm & Music', 'Mathematics']
 
     useEffect(() => {
         setActivitiesOfSelectedArea(allActivities.map(activity => {
@@ -59,8 +60,16 @@ const Cirriculum = () => {
                 {child.firstName} {child.lastName}
             </div>
             <div className='cirriculum-heads-up-container'>
-                <div className='select-area-container'>
-                    Area: {showAreas ? <div></div> : selectedArea}
+                <div className='select-area-container' onClick={() => {setShowAreas(!showAreas)}}>
+                    Area: {showAreas ? <div className='floating-areas'>
+                        <div className='selectable-areas'>
+                        {selectableAreas.map(area => {
+                            if (area != selectedArea){
+                                return <p className='selectable-area' onClick={() => {setSelectedArea(area); setShowAreas(false)}}>{area}</p>
+                            }
+                        })}
+                    </div>
+                        </div> : <div onClick={() => {setShowAreas(true)}}>{selectedArea}</div>}
                 </div>
             </div>
             <div className='activities-main-container'>

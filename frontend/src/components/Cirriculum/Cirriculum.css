@@ -2,6 +2,9 @@
     margin-left: 50px;
     height: 100%;
 }
+.cirriculum-main:hover{
+    cursor: default;
+}
 
 .student-name-container{
     display: flex;
@@ -37,6 +40,25 @@
 }
 .activity-notes{
     width: 33%;
+}
+
+.select-area-container{
+    display: flex;
+}
+.selectable-areas{
+    position: fixed;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2px 5px 2px 2px;
+    margin-left: 2px;
+    box-shadow: 2px 2px 5px black;
+    background-color: rgba(160,75,255,1.0);
+}
+.selectable-area{
+    font-size:20px;
+}
+.selectable-area:hover{
+    cursor: pointer;
 }
 
 .darker{
